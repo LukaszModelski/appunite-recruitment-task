@@ -1,5 +1,13 @@
 import './main.scss';
 
-import { x } from "./test";
+import React from "react";
+import ReactDOM from "react-dom";
+import { HashRouter } from "react-router-dom";
+import { App } from "./App";
 
-console.log(x);
+ReactDOM.render(
+  <HashRouter>
+    <App />
+  </HashRouter>,
+  document.querySelector(".App")
+);
