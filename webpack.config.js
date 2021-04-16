@@ -14,7 +14,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env'],
+            presets: ['@babel/preset-env', '@babel/preset-react'],
             plugins: ['@babel/plugin-transform-runtime']
           }
         }
@@ -28,7 +28,8 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       inject: 'body',
-      title: "AppUnite recruitment task"
+      title: "AppUnite recruitment task",
+      template: 'index.html'
     }),
     new MiniCssExtractPlugin()
   ],
