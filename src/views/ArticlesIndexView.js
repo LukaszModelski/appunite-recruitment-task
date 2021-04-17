@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import { fetchArticles } from "../utils/api";
+import { ArticlesFilters } from "../components/ArticlesFilters/ArticlesFilters";
+import { ArticlesList } from "../components/ArticlesList/ArticlesList";
 
 export const ArticlesIndexView = () => {
 
@@ -11,6 +13,8 @@ export const ArticlesIndexView = () => {
   }, []);
 
   return (<>
-    Article index view
+    <h1>Articles</h1>
+    <ArticlesFilters/>
+    <ArticlesList/>
   </>);
 };
