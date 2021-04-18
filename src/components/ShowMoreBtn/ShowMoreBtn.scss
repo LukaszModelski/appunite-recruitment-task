@@ -1,0 +1,7 @@
+.show-more-btn {
+  @include button-transparent-big;
+  
+  display: block;
+  width: 330px;
+  margin: 0 auto 50px;
+}
