@@ -2,29 +2,11 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import uuid from "react-uuid";
 import { setFilterValue } from "../../store/actions";
+import { filters } from "./filtersConfig";
 
 export const ArticlesFilters = () => {
   const dispatch = useDispatch();
   const activeTopicFilter = useSelector(state => state.filters.topic);
-
-  const topicFilters = [
-    {
-      searchParam: 'technology',
-      label: 'Tech'
-    },
-    {
-      searchParam: 'travel',
-      label: 'Travel'
-    },
-    {
-      searchParam: 'politics',
-      label: 'Politics'
-    },
-    {
-      searchParam: 'sports',
-      label: 'Sports'
-    }
-  ];
 
   const renderFilterDropdown = (filterItems) => (
     filterItems.map(item => (
@@ -43,7 +25,7 @@ export const ArticlesFilters = () => {
 
   return (<div className="filters">
     <ul className="filters_topic">
-      {renderFilterDropdown(topicFilters)}
+      {renderFilterDropdown(filters.topic)}
     </ul>
   </div>);
 };

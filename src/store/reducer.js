@@ -1,9 +1,10 @@
 import { SET_ARTICLES_LIST, INCREMENT_PAGE_NR, SET_FILTER_VALUE } from "./actions";
+import { filters } from "../components/ArticlesFilters/filtersConfig";
 
 const initialState = {
   articles: [],
   filters: {
-    topic: 'technology',
+    topic: filters.topic[0].searchParam,
     sortBy: false,
     time: false
   },

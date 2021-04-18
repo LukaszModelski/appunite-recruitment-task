@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { formatDate } from "../../utils/date";
+import { validateDateString, formatDate } from "../../utils/date";
 import { formatAuthor } from "../../utils/utils";
 
 export const ArticlePreview = props => {
@@ -12,7 +12,7 @@ export const ArticlePreview = props => {
   return (<div className="article-preview">
     <div className="article-preview_img" style={imageStyles}></div>
     <div className="article-preview_info">
-      {formatDate(props.date) && <span className="article-preview_date">{formatDate(props.date)}</span>}
+      {validateDateString(props.date) && <span className="article-preview_date">{formatDate(props.date)}</span>}
       {props.author && <span className="article-preview_author">{formatAuthor(props.author)}</span>}
       <a
         href={props.sourceUrl}
