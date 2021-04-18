@@ -27,7 +27,18 @@ module.exports = {
       {
         test: /\.scss$/,
         use:[MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
-      }
+      },
+      {
+        test: /\.(ttf)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[path][name].[ext]',
+            },
+          },
+        ],
+      },
     ]
   },
   plugins: [

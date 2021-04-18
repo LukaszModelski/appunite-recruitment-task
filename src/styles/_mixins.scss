@@ -1,0 +1,36 @@
+@mixin button {
+  display: inline-block;
+  font-size: 16px;
+  line-height: 16px;
+  text-align: center;
+  cursor: pointer;
+}
+
+@mixin button-blue {
+  @include button;
+  padding: 17px 30px;
+  background-color: $blue;
+  color: $white;
+
+  &:visited {
+    color: $white;
+  }
+}
+
+@mixin button-transparent {
+  @include button;
+  padding: 7px 30px;
+  border: 1px solid $blue;
+  background-color: transparent;
+  color: $blue;
+
+  &:visited {
+    color: $blue;
+  }
+}
+
+@mixin button-transparent-big {
+  @include button-transparent;
+
+  padding: 15px 30px;
+}
