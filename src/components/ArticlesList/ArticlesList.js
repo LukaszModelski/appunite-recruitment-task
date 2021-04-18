@@ -1,8 +1,26 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { ArticlePreview } from "../ArticlePreview/ArticlePreview";
 
 export const ArticlesList = () => {
+  const articlesList = useSelector(state => state.articles);
 
-  return (<>
-    <p>Article list</p>
-  </>);
+  const renderArticlesList = (articlesList) => {
+    return articlesList.map(article => {
+      return <ArticlePreview
+        key={article.title}
+        img={article.urlToImage}
+        title={article.title}
+        description={article.description}
+        date={article.publishedAt}
+        author={article.author}
+        sourceName={article.source.name}
+        sourceUrl={article.url}
+      />
+    })
+  }
+
+  return (<div className="articles-list">
+    {articlesList.length > 0 && renderArticlesList(articlesList)}
+  </div>);
 };

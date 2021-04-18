@@ -1,4 +1,22 @@
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 body {
+  box-sizing: border-box;
   color: $black;
   font-family: ArialMT, Arial;
+}
+
+img {
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: $blue;
+  
+  &:visited {
+    color: $blue;
+  }
 }

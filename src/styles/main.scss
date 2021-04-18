@@ -2,5 +2,10 @@
 @import './fonts.scss';
 @import './variables';
 @import './global';
+@import './mixins';
 @import './typography';
 @import './container.scss';
+
+// components
+@import '../components/ArticlesList/ArticlesList.scss';
+@import '../components/ArticlePreview/ArticlePreview.scss';
