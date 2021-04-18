@@ -9,14 +9,17 @@ import { setArticlesList, incrementPageNr } from "../store/actions";
 export const ArticlesIndexView = () => {
   const dispatch = useDispatch();
   const pageNr = useSelector(state => state.pageNr);
+  const topicFilter = useSelector(state => state.filters.topic);
+  const sortByFilter = useSelector(state => state.filters.sortBy);
+  const timeFilter = useSelector(state => state.filters.time);
 
   useEffect(() => {
-
-    fetchArticles(pageNr, 'tech')
+    fetchArticles(pageNr, topicFilter, sortByFilter, timeFilter)
       .then((res) => {
+        console.log(res.data.articles);
         dispatch(setArticlesList(res.data.articles));
       });
-  }, [pageNr]);
+  }, [pageNr, topicFilter, sortByFilter, timeFilter]);
 
   return (<>
     <h1>Articles</h1>

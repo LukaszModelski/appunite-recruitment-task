@@ -13,7 +13,7 @@ export const ArticlePreview = props => {
     <div className="article-preview_img" style={imageStyles}></div>
     <div className="article-preview_info">
       {formatDate(props.date) && <span className="article-preview_date">{formatDate(props.date)}</span>}
-      <span className="article-preview_author">{formatAuthor(props.author)}</span>
+      {props.author && <span className="article-preview_author">{formatAuthor(props.author)}</span>}
       <a
         href={props.sourceUrl}
         target="_blank"

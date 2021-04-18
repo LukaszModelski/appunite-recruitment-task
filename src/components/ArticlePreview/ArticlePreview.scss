@@ -21,6 +21,7 @@
 .article-preview_date,
 .article-preview_author,
 .article-preview_source-link {
+  display: inline-block;
   margin-bottom: 9px;
 }
 
@@ -30,12 +31,7 @@
 }
 
 .article-preview_author {
-  display: inline-block;
   text-transform: capitalize;
-}
-
-.article-preview_source-link {
-  display: inline-block;
 }
 
 .article-preview_read-more-btn {
