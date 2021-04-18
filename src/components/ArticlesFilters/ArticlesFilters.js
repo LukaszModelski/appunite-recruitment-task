@@ -20,7 +20,9 @@ export const ArticlesFilters = () => {
   )
 
   const handleFilterItemClick = (filterValue) => {
-    dispatch(setFilterValue('topic', filterValue));
+    if(filterValue !== activeTopicFilter) {
+      dispatch(setFilterValue('topic', filterValue));
+    }
   }
 
   return (<div className="filters">
