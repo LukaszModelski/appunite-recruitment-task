@@ -1,0 +1,62 @@
+.filter {
+  display: inline-block;
+  margin-right: 18px;
+}
+
+.filter_curr-items-dropdown {
+  position: relative;
+  top: -1px;
+  margin: 0;
+  padding: 16px;
+  background-color: $white;
+  border: 1px solid $grey-light;
+  list-style-type: none;
+}
+
+.filter_curr-item {
+  position: relative;
+  min-width: 110px;
+  padding-right: 50px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid $grey-light;
+  font-size: 14px;
+  line-height: 16px;
+  cursor: pointer;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    display: block;
+    width: 7px;
+    height: 7px;
+    border-left: 1px solid $grey-3;
+    border-bottom: 1px solid $grey-3;
+    transform: rotate(-45deg);
+  }
+}
+
+.filter_curr-item--placeholder {
+  color: $grey-2;
+}
+
+.filter_item {
+  margin-bottom: 16px;
+  font-size: 14px;
+  line-height: 16px;
+  color: $grey-2;
+  cursor: pointer;
+
+  &:hover {
+    color: $blue;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.filter_item--active {
+  color: $blue;
+}
