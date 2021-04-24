@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setFilterValue, resetArticlesList, resetPageNr } from "../../store/actions";
+import { setFilterValue, resetPageNr } from "../../store/actions";
 import { useComponentVisible } from "../../hooks/useComponentVisible";
 
 export const Filter = props => {
@@ -23,14 +23,12 @@ export const Filter = props => {
 
   const handleItemClickRequired = (filterSearchParam, itemLabel) => {
     if(filterSearchParam !== filterCurrentValue.searchParam) {
-      dispatch(resetArticlesList());
       dispatch(resetPageNr());
       dispatch(setFilterValue(props.filterType, filterSearchParam, itemLabel));
     }
   }
 
   const handleItemClickNotRequired = (filterSearchParam, itemLabel) => {
-    dispatch(resetArticlesList());
     dispatch(resetPageNr());
     if(filterSearchParam !== filterCurrentValue.searchParam) {
       dispatch(setFilterValue(props.filterType, filterSearchParam, itemLabel));

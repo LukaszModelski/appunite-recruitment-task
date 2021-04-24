@@ -8,7 +8,6 @@ export const ArticlesFilters = () => {
   const dispatch = useDispatch();
 
   const handleCleasrFiltersBtn = () => {
-    dispatch(resetArticlesList());
     dispatch(resetPageNr());
     dispatch(resetFilters());
   }

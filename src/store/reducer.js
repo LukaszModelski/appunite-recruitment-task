@@ -1,4 +1,5 @@
 import {
+  SET_ARTICLES_LIST,
   APPEND_ARTICLES_LIST,
   RESET_ARTICLES_LIST,
   INCREMENT_PAGE_NR,
@@ -29,6 +30,11 @@ const initialState = {
 
 export const reducer = (state = initialState, action) => {
   switch(action.type) {
+    case SET_ARTICLES_LIST:
+      return {
+        ...state,
+        articles: action.articlesList
+      }
     case APPEND_ARTICLES_LIST:
       return {
         ...state,

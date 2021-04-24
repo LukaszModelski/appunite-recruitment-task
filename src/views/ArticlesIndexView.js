@@ -4,7 +4,7 @@ import { fetchArticles } from "../utils/api";
 import { ArticlesFilters } from "../components/ArticlesFilters/ArticlesFilters";
 import { ArticlesList } from "../components/ArticlesList/ArticlesList";
 import { ShowMoreBtn } from "../components/ShowMoreBtn/ShowMoreBtn";
-import { appendArticlesList } from "../store/actions";
+import { appendArticlesList, resetArticlesList } from "../store/actions";
 
 export const ArticlesIndexView = () => {
   const dispatch = useDispatch();
@@ -17,6 +17,9 @@ export const ArticlesIndexView = () => {
     fetchArticles(pageNr, topicFilter, sortByFilter, timeFilter)
       .then((res) => {
         console.log(res.data.articles);
+        if(pageNr === 1) {
+          dispatch(resetArticlesList());
+        }
         dispatch(appendArticlesList(res.data.articles));
       });
   }, [pageNr, topicFilter, sortByFilter, timeFilter]);
