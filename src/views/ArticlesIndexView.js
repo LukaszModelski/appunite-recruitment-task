@@ -9,9 +9,9 @@ import { appendArticlesList } from "../store/actions";
 export const ArticlesIndexView = () => {
   const dispatch = useDispatch();
   const pageNr = useSelector(state => state.pageNr);
-  const topicFilter = useSelector(state => state.filters.topic);
-  const sortByFilter = useSelector(state => state.filters.sortBy);
-  const timeFilter = useSelector(state => state.filters.time);
+  const topicFilter = useSelector(state => state.filters.topic.searchParam);
+  const sortByFilter = useSelector(state => state.filters.sortBy.searchParam);
+  const timeFilter = useSelector(state => state.filters.time.searchParam);
 
   useEffect(() => {
     fetchArticles(pageNr, topicFilter, sortByFilter, timeFilter)

@@ -1,11 +1,13 @@
 .filter {
+  position: relative;
   display: inline-block;
   margin-right: 18px;
 }
 
 .filter_curr-items-dropdown {
-  position: relative;
-  top: -1px;
+  position: absolute;
+  top: 23px;
+  min-width: 100%;
   margin: 0;
   padding: 16px;
   background-color: $white;
@@ -46,6 +48,7 @@
   font-size: 14px;
   line-height: 16px;
   color: $grey-2;
+  white-space: nowrap;
   cursor: pointer;
 
   &:hover {

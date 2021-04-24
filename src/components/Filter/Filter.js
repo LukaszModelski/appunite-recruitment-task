@@ -6,58 +6,54 @@ import { useComponentVisible } from "../../hooks/useComponentVisible";
 export const Filter = props => {
   const dispatch = useDispatch();
   const { ref, isComponentVisible, setIsComponentVisible } = useComponentVisible(false);
-  const [activeItemIndex, setActiveItemIndex] = useState(props.valueRequired ? 0 : null);
   const filterCurrentValue = useSelector(state => state.filters[props.filterType]);
 
   const handleCurrentItemCLick = () => {
     setIsComponentVisible(!isComponentVisible);
   }
 
-  const handleItemCLick = (filterValue, itemIndex) => {
+  const handleItemCLick = (filterSearchParam, itemLabel) => {
     if(props.valueRequired) {
-      handleItemClickRequired(filterValue, itemIndex);
+      handleItemClickRequired(filterSearchParam, itemLabel);
     } else {
-      handleItemClickNotRequired(filterValue, itemIndex);
+      handleItemClickNotRequired(filterSearchParam, itemLabel);
     }
     setIsComponentVisible(false);
   }
 
-  const handleItemClickRequired = (filterValue, itemIndex) => {
-    if(filterValue !== filterCurrentValue) {
+  const handleItemClickRequired = (filterSearchParam, itemLabel) => {
+    if(filterSearchParam !== filterCurrentValue.searchParam) {
       dispatch(resetArticlesList());
       dispatch(resetPageNr());
-      dispatch(setFilterValue(props.filterType, filterValue));
-      setActiveItemIndex(itemIndex);
+      dispatch(setFilterValue(props.filterType, filterSearchParam, itemLabel));
     }
   }
 
-  const handleItemClickNotRequired = (filterValue, itemIndex) => {
+  const handleItemClickNotRequired = (filterSearchParam, itemLabel) => {
     dispatch(resetArticlesList());
     dispatch(resetPageNr());
-    if(filterValue !== filterCurrentValue) {
-      dispatch(setFilterValue(props.filterType, filterValue));
-      setActiveItemIndex(itemIndex);
+    if(filterSearchParam !== filterCurrentValue.searchParam) {
+      dispatch(setFilterValue(props.filterType, filterSearchParam, itemLabel));
     } else {
-      dispatch(setFilterValue(props.filterType, false));
-      setActiveItemIndex(null);
+      dispatch(setFilterValue(props.filterType, false, ''));
     }
   }
 
-  const renderFilterDropdown = items => items.map((item, i) => (
+  const renderFilterDropdown = items => items.map(item => (
     <li
       key={item.label}
       className="filter_item"
-      className={`filter_item ${item.searchParam === filterCurrentValue ? 'filter_item--active' : ''}`}
-      onClick={() => { handleItemCLick(item.searchParam, i) }}>
+      className={`filter_item ${item.searchParam === filterCurrentValue.searchParam ? 'filter_item--active' : ''}`}
+      onClick={() => { handleItemCLick(item.searchParam, item.label) }}>
       {item.label}
     </li>));
 
   return <div className="filter" ref={ref}>
     <div
       className="filter_curr-item"
-      className={`filter_curr-item ${activeItemIndex === null ? 'filter_curr-item--placeholder' : ''}`}
+      className={`filter_curr-item ${filterCurrentValue.label ? '' : 'filter_curr-item--placeholder'}`}
       onClick={handleCurrentItemCLick}>
-      {activeItemIndex === null ? props.placeholder : props.items[activeItemIndex].label}
+      {filterCurrentValue.label ? filterCurrentValue.label : props.placeholder}
     </div>
     {isComponentVisible && <ul className="filter_curr-items-dropdown">
       {props.items && renderFilterDropdown(props.items)}

@@ -22,15 +22,25 @@ export const filters = {
   time: [
     {
       searchParam: getTodayDate(),
-      label: 'today'
+      label: 'Today'
     },
     {
       searchParam: getLastWeekDate(),
-      label: 'this week'
+      label: 'This week'
     },
     {
       searchParam: getLastMonthDate(),
-      label: 'this month'
+      label: 'This month'
     }
+  ],
+  sortBy: [
+    {
+      searchParam: 'popularity',
+      label: 'Most popular'
+    },
+    {
+      searchParam: 'publishedAt',
+      label: 'Newest'
+    },
   ]
 }

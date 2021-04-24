@@ -1,3 +1,9 @@
-.filters {
+.filters-section {
   margin-bottom: 28px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.filters-section_clear-filters-btn {
+  @include button-transparent;
 }

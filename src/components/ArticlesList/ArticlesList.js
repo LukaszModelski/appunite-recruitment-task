@@ -21,7 +21,7 @@ export const ArticlesList = () => {
     ))
   )
 
-  return (<div className="articles-list">
+  return (<section className="articles-list">
     {articlesList.length > 0 && renderArticlesList(articlesList)}
-  </div>);
+  </section>);
 };
