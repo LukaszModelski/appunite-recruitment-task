@@ -1,3 +1,5 @@
+import { getTodayDate, getLastWeekDate, getLastMonthDate } from "../../utils/date";
+
 export const filters = {
   topic: [
     {
@@ -16,5 +18,29 @@ export const filters = {
       searchParam: 'sports',
       label: 'Sports'
     }
+  ],
+  time: [
+    {
+      searchParam: getTodayDate(),
+      label: 'Today'
+    },
+    {
+      searchParam: getLastWeekDate(),
+      label: 'This week'
+    },
+    {
+      searchParam: getLastMonthDate(),
+      label: 'This month'
+    }
+  ],
+  sortBy: [
+    {
+      searchParam: 'popularity',
+      label: 'Most popular'
+    },
+    {
+      searchParam: 'publishedAt',
+      label: 'Newest'
+    },
   ]
 }

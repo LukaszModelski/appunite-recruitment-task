@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const apiConfig = {
-  apiKey: '952b9e3300774610ab0cb967e5045981',
+  // apiKey: '952b9e3300774610ab0cb967e5045981',
+  apiKey: '0d0dccb095de430481fb5a2014024e40',
   apiEndpooint: 'https://newsapi.org/v2/everything',
   pageSize: 6
 }

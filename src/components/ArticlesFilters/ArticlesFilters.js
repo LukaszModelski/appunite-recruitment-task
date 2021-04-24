@@ -1,33 +1,27 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import uuid from "react-uuid";
-import { setFilterValue } from "../../store/actions";
+import React from "react";
+import { useDispatch } from "react-redux";
+import { Filter } from "../Filter/Filter";
 import { filters } from "./filtersConfig";
+import { resetArticlesList, resetPageNr, resetFilters } from "../../store/actions";
 
 export const ArticlesFilters = () => {
   const dispatch = useDispatch();
-  const activeTopicFilter = useSelector(state => state.filters.topic);
 
-  const renderFilterDropdown = (filterItems) => (
-    filterItems.map(item => (
-      <li
-        key={uuid()}
-        className={`filters_filter-item ${item.searchParam === activeTopicFilter ? 'filters_filter-item--active' : ''}`}
-        onClick={() => {handleFilterItemClick(item.searchParam)}}>
-        {item.label}
-      </li>
-    ))
-  )
-
-  const handleFilterItemClick = (filterValue) => {
-    if(filterValue !== activeTopicFilter) {
-      dispatch(setFilterValue('topic', filterValue));
-    }
+  const handleCleasrFiltersBtn = () => {
+    dispatch(resetPageNr());
+    dispatch(resetFilters());
   }
 
-  return (<div className="filters">
-    <ul className="filters_topic">
-      {renderFilterDropdown(filters.topic)}
-    </ul>
-  </div>);
+  return (<section className="filters-section">
+    <div className="filters">
+      <Filter items={filters.topic} filterType="topic" valueRequired={true}/>
+      <Filter items={filters.time} filterType="time" placeholder="From"/>
+      <Filter items={filters.sortBy} filterType="sortBy" placeholder="Sort by"/>
+    </div>
+    <button
+      className="filters-section_clear-filters-btn"
+      onClick={handleCleasrFiltersBtn}>
+      Clear Filters
+    </button>
+  </section>);
 };
