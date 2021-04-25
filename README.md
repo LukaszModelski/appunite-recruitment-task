@@ -24,4 +24,5 @@ Production build consist of:
 * `public/` - public folder including all static assets like images and fonts
 
 ## Tests
-* `npm run test` - runs all test with Jest library
+* `npm run test` - runs all test with Jest library (excluding API test)
+* `npm run test:api` - runs API test

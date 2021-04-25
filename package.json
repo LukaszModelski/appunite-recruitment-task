@@ -7,8 +7,10 @@
     "serve": "webpack serve --mode development",
     "dev": "webpack --mode development",
     "prod": "jest && webpack --mode production",
-    "test": "jest"
+    "test": "jest --testPathIgnorePatterns ./src/utils/api.test.js",
+    "test:api": "jest src/utils/api.test.js"
   },
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LukaszModelski/appunite-recruitment-task.git"

@@ -3,7 +3,7 @@ import { appendArticlesList } from "./actions";
 
 const testStores = [
   {
-    desc: 'Articles should be appended to existing list',
+    desc: 'Articles should be appended to empty list',
     before: {
       articles: []
     },
