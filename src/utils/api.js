@@ -17,3 +17,10 @@ export const fetchArticles = (page, topic, sortBy, time) => {
   url.searchParams.set('apiKey', apiConfig.apiKey);
   return axios.get(url.href);
 }
+
+export const fetchArticleByTitle = title => {
+  const url = new URL(apiConfig.apiEndpooint);
+  if (title) { url.searchParams.set('qInTitle', title); }
+  url.searchParams.set('apiKey', apiConfig.apiKey);
+  return axios.get(url.href);
+}

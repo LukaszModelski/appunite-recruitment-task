@@ -17,6 +17,12 @@
   }
 }
 
+@mixin button-blue-big {
+  @include button-blue ;
+
+  padding: 24px 100px;
+}
+
 @mixin button-transparent {
   @include button;
   padding: 7px 30px;

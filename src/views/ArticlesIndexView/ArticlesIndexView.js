@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchArticles } from "../utils/api";
-import { ArticlesFilters } from "../components/ArticlesFilters/ArticlesFilters";
-import { ArticlesList } from "../components/ArticlesList/ArticlesList";
-import { ShowMoreBtn } from "../components/ShowMoreBtn/ShowMoreBtn";
-import { appendArticlesList, resetArticlesList } from "../store/actions";
+import { fetchArticles } from "../../utils/api";
+import { ArticlesFilters } from "../../components/ArticlesFilters/ArticlesFilters";
+import { ArticlesList } from "../../components/ArticlesList/ArticlesList";
+import { ShowMoreBtn } from "../../components/ShowMoreBtn/ShowMoreBtn";
+import { appendArticlesList, resetArticlesList } from "../../store/actions";
 
 export const ArticlesIndexView = () => {
   const dispatch = useDispatch();
@@ -24,10 +24,10 @@ export const ArticlesIndexView = () => {
       });
   }, [pageNr, topicFilter, sortByFilter, timeFilter]);
 
-  return (<>
+  return <section className="article-index-view">
     <h1>Articles</h1>
     <ArticlesFilters/>
     <ArticlesList/>
     <ShowMoreBtn/>
-  </>);
+  </section>;
 };

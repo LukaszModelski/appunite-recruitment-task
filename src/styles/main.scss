@@ -6,6 +6,9 @@
 @import './typography';
 @import './container.scss';
 
+// views
+@import '../views/ArticleDetailsView/ArticleDetails.scss';
+
 // components
 @import '../components/ArticlesFilters/ArticlesFilters.scss';
 @import '../components/ArticlesList/ArticlesList.scss';

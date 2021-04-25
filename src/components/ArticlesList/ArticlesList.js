@@ -7,9 +7,10 @@ export const ArticlesList = () => {
   const articlesList = useSelector(state => state.articles);
 
   const renderArticlesList = (articlesList) => (
-    articlesList.map(article => (
+    articlesList.map((article, index) => (
       <ArticlePreview
         key={uuid()}
+        index={index}
         img={article.urlToImage}
         title={article.title}
         description={article.description}

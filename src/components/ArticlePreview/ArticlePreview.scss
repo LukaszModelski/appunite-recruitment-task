@@ -39,3 +39,22 @@
 
   width: 100%;
 }
+
+.article-preview_source-btn {
+  @include button-blue-big;
+}
+
+.article-preview--details-page {
+  width: auto;
+  padding: 0;
+
+  .article-preview_content {
+    margin: 0 auto;
+    max-width: 600px;
+  }
+
+  .article-preview_img {
+    margin-bottom: 32px;
+    padding: 0;
+  }
+}
