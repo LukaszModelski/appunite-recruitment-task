@@ -8,7 +8,7 @@ Project is created with use of webpack 5 module bundler. Project features:
 * `JEST` for testing
 
 ## Local setup
-From root:
+Please use `main` branch. From root:
 * `npm install`
 * `npm run serve` - starts local dev server with live reloading on `localhost:8080`
 
